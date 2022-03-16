@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:viewmodel/viewmodel.dart';
 import 'package:viewmodel_example/pages/future_increment_stream.dart';
+import 'package:viewmodel_example/pages/future_increment_widget.dart';
 import 'package:viewmodel_example/viewmodel/counter_viewmodel.dart';
 
 void main() {
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage( ),
+      home: const MyHomePage(),
     );
   }
 }
@@ -35,26 +36,31 @@ class MyHomePage extends StatelessWidget {
       body: Center(
         child: SingleChildScrollView(
           child: Column(
-
             children: [
               ElevatedButton(
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const FutureIncrementStream()),
+                    MaterialPageRoute(
+                        builder: (context) => const FutureIncrementStream()),
                   );
-
                 },
                 child: const Text('Future Stream'),
               ),
-
-
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>   FutureIncrementWidget()),
+                  );
+                },
+                child: const Text('Future Widget'),
+              ),
             ],
-
           ),
         ),
       ),
-
     );
   }
 }
