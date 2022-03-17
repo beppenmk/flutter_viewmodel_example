@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:viewmodel/viewmodel.dart';
 import 'package:viewmodel_example/pages/future_increment_stream.dart';
 import 'package:viewmodel_example/pages/future_increment_widget.dart';
+import 'package:viewmodel_example/pages/countdown_widget.dart';
 import 'package:viewmodel_example/viewmodel/counter_viewmodel.dart';
 
 void main() {
@@ -52,10 +53,20 @@ class MyHomePage extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) =>   FutureIncrementWidget()),
+                        builder: (context) => FutureIncrementWidget()),
                   );
                 },
                 child: const Text('Future Widget'),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => CountdownWidget()),
+                  );
+                },
+                child: const Text('Countdown'),
               ),
             ],
           ),
