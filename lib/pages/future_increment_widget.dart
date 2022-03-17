@@ -7,7 +7,7 @@ class FutureIncrementWidget extends StatelessWidget {
   FutureIncrementWidget({Key? key}) : super(key: key);
 
   int _counter = 0;
-  CounterViewModel vm = CounterViewModel();
+  final CounterViewModel vm = CounterViewModel();
 
   void _incrementCounter() {
     vm.increment(_counter);
@@ -37,6 +37,8 @@ class FutureIncrementWidget extends StatelessWidget {
                 );
               },
             ),
+
+            /*
             SnapshotBuilder<int>(
               broadcast: vm.number,
               initialData: 20,
@@ -47,6 +49,8 @@ class FutureIncrementWidget extends StatelessWidget {
                 );
               },
             ),
+           */
+            /*
             SnapshotBuilder<int>(
               broadcast: vm.number,
               isAnimated: false,
@@ -57,6 +61,8 @@ class FutureIncrementWidget extends StatelessWidget {
                 );
               },
             ),
+            */
+            /*
             SnapshotBuilder<int>(
               broadcast: vm.number,
               onLoading: Container(
@@ -71,6 +77,7 @@ class FutureIncrementWidget extends StatelessWidget {
                 style: Theme.of(context).textTheme.headline4,
               ),
             ),
+             */
           ],
         ),
       ),
@@ -82,18 +89,3 @@ class FutureIncrementWidget extends StatelessWidget {
     );
   }
 }
-
-/*
-
-  @override
-  void initState() {
-    vm.number.stream?.listen((value) {
-      setState(() {
-        _counter = value;
-      });
-    });
-
-    super.initState();
-  }
-
- */

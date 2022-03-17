@@ -14,6 +14,6 @@ class CounterViewModel extends ViewModel {
   }
 
   increment(int value ) {
-    executeFuture(_increment(value), broadcastStreamController: number);
+    executeFuture(_increment(value),broadcastStream: number);
   }
 }
