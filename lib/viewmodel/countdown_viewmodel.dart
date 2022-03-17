@@ -39,7 +39,7 @@ class TimerViewModel extends ViewModel {
   @override
   void dispose() {
     numberStream.dispose();
-    _timer!.cancel();
+    _timer?.cancel();
     super.dispose();
   }
 }
