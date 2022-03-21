@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:viewmodel_example/viewmodel/auth_viewmodel.dart';
 import 'package:viewmodel_example/viewmodel/counter_viewmodel.dart';
 import 'package:viewmodel/widget/snapshot_builder.dart';
 
@@ -13,18 +14,18 @@ class LoginWidget extends StatefulWidget {
 }
 
 class _LoginWidgetState extends State<LoginWidget> {
-  final int _number = 500;
-  late TimerViewModel _timerViewModel;
+  AuthViewModel _authViewModel = AuthViewModel();
 
   @override
   void initState() {
-    _timerViewModel = TimerViewModel(_number);
+    _authViewModel.getIfUserIsLogged();
+
     super.initState();
   }
 
   @override
   void dispose() {
-    _timerViewModel.dispose();
+    _authViewModel.dispose();
     super.dispose();
   }
 
@@ -32,49 +33,33 @@ class _LoginWidgetState extends State<LoginWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Countdown"),
+        title: const Text("Login UseCase"),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            /*SnapshotBuilder<int>(
-              broadcast: _timerViewModel.numberStream,
-              initialData: _number,
-              child: (value) {
-                return Text(
-                  'User is logged: $value',
-                  style: Theme.of(context).textTheme.headline4,
-                );
-              },
-            ),
-
-
-
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                IconButton(
-                  icon: const Icon(Icons.stop),
-                  onPressed: () {
-                    _timerViewModel.stop();
-                  },
-                ),
-                IconButton(
-                  icon: const Icon(Icons.pause),
-                  onPressed: () {
-                    _timerViewModel.pause();
-                  },
-                ),
-                IconButton(
-                  icon: const Icon(Icons.play_arrow),
-                  onPressed: () {
-                    _timerViewModel.play();
-                  },
-                ),
-              ],
-            ),*/
-          ],
+        child: SnapshotBuilder<bool>(
+          initialData: false,
+          broadcast: _authViewModel.isUserLogged,
+          child: (value) {
+            return Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(" User is logged : ${value}"),
+                  if (value)
+                    ElevatedButton(
+                      onPressed: () {
+                        _authViewModel.logout();
+                      },
+                      child: const Text('Logout'),
+                    ),
+                  if (!value)
+                    ElevatedButton(
+                      onPressed: () {
+                        _authViewModel.login();
+                      },
+                      child: const Text('Login'),
+                    ),
+                ]);
+          },
         ),
       ),
     );

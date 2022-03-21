@@ -10,8 +10,9 @@ class LoginUseCase  extends UseCase<LoginParams, bool>{
 
 
   @override
-  Future<bool> execute(LoginParams params) {
-    return _userRepository.login();
+  Future<bool> execute(LoginParams params)async  {
+    await  _userRepository.login();
+    return   _userRepository.getIfUserIsLogged();
   }
 
 }

@@ -2,6 +2,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class UserRepository {
   SharedPreferences? _prefs;
+  final String USER = "USER";
 
   Future<SharedPreferences> _getPref() async {
     _prefs ??= await SharedPreferences.getInstance();
@@ -10,18 +11,21 @@ class UserRepository {
 
   Future<bool> getIfUserIsLogged() async {
     final prefs = await _getPref();
-
-    return Future.value(true);
+    String? _token = prefs.getString(USER);
+    return Future.value(_token != null);
   }
 
   Future<bool> login() async {
     final prefs = await _getPref();
-
-    return Future.value(true);
+    prefs.setString(USER, "token");
+    String? _token = prefs.getString(USER);
+    return Future.value(_token != null);
   }
 
   Future<bool> logout() async {
     final prefs = await _getPref();
-    return Future.value(true);
+    prefs.clear();
+    String? _token = prefs.getString(USER);
+    return Future.value(_token == null);
   }
 }
