@@ -1,7 +1,7 @@
 import 'package:viewmodel/base/broadcast_stream_controller.dart';
 import 'package:viewmodel/base/usecase.dart';
-import 'package:viewmodel/viewmodel.dart';
-import 'package:viewmodel_example/repository/user_repository.dart';
+import 'package:viewmodel/base_view_model.dart';
+ import 'package:viewmodel_example/repository/user_repository.dart';
 import 'package:viewmodel_example/usecase/is_user_logged_usecase.dart';
 import 'package:viewmodel_example/usecase/login_usecase.dart';
 import 'package:viewmodel_example/usecase/logout_usecase.dart';
@@ -26,7 +26,6 @@ class AuthViewModel extends BaseViewModel {
   }
 
   void login() {
-    print("login");
     executeUseCase(_loginUseCase, LoginParams("username", "password"),
         broadcastStream: isUserLogged);
   }

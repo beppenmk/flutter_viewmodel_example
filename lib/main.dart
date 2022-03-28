@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:viewmodel/viewmodel.dart';
+
 import 'package:viewmodel_example/pages/future_increment_stream.dart';
 import 'package:viewmodel_example/pages/future_increment_widget.dart';
 import 'package:viewmodel_example/pages/countdown_widget.dart';

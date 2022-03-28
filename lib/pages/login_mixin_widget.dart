@@ -19,8 +19,8 @@ class _LoginMixinWidgetState extends State<LoginMixinWidget>
 
   @override
   void initState() {
-    vm.getIfUserIsLogged();
     super.initState();
+    vm.getIfUserIsLogged();
   }
 
   @override
