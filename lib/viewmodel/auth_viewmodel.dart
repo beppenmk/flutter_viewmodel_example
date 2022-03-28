@@ -6,7 +6,7 @@ import 'package:viewmodel_example/usecase/is_user_logged_usecase.dart';
 import 'package:viewmodel_example/usecase/login_usecase.dart';
 import 'package:viewmodel_example/usecase/logout_usecase.dart';
 
-class AuthViewModel extends ViewModel {
+class AuthViewModel extends BaseViewModel {
   late IsUserLoggedUseCase _isUserLoggedUseCase;
   late LoginUseCase _loginUseCase;
   late LogoutUseCase _logoutUseCase;

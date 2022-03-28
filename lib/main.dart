@@ -3,6 +3,7 @@ import 'package:viewmodel/viewmodel.dart';
 import 'package:viewmodel_example/pages/future_increment_stream.dart';
 import 'package:viewmodel_example/pages/future_increment_widget.dart';
 import 'package:viewmodel_example/pages/countdown_widget.dart';
+import 'package:viewmodel_example/pages/login_mixin_widget.dart';
 import 'package:viewmodel_example/pages/login_widget.dart';
 import 'package:viewmodel_example/viewmodel/counter_viewmodel.dart';
 
@@ -63,7 +64,7 @@ class MyHomePage extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => CountdownWidget()),
+                    MaterialPageRoute(builder: (context) => const CountdownWidget()),
                   );
                 },
                 child: const Text('Countdown'),
@@ -72,10 +73,19 @@ class MyHomePage extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => LoginWidget()),
+                    MaterialPageRoute(builder: (context) => const LoginWidget()),
                   );
                 },
                 child: const Text('Login UseCase'),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const LoginMixinWidget()),
+                  );
+                },
+                child: const Text('Login With Mixin ViewModel'),
               ),
             ],
           ),

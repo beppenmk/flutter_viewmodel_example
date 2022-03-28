@@ -1,7 +1,7 @@
  import 'package:viewmodel/base/broadcast_stream_controller.dart';
 import 'package:viewmodel/viewmodel.dart';
 
-class CounterViewModel extends ViewModel {
+class CounterViewModel extends BaseViewModel {
   CounterViewModel();
 
   final number = BroadcastStream<int>();

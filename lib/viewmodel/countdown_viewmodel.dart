@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:viewmodel/base/broadcast_stream_controller.dart';
 import 'package:viewmodel/viewmodel.dart';
 
-class TimerViewModel extends ViewModel {
+class TimerViewModel extends BaseViewModel {
   int number = 0;
   int _number = 0;
   Timer? _timer;
