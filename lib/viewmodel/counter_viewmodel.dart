@@ -1,5 +1,6 @@
  import 'package:viewmodel/base/broadcast_stream_controller.dart';
 import 'package:viewmodel/base_view_model.dart';
+import 'package:viewmodel/vm.dart';
 
 
 class CounterViewModel extends BaseViewModel {
