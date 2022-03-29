@@ -39,7 +39,7 @@ class _LoginWidgetState extends State<LoginWidget> {
         child: SnapshotBuilder<bool>(
           initialData: false,
           broadcast: _authViewModel.isUserLogged,
-          child: (value) {
+          onData: (value) {
             return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[

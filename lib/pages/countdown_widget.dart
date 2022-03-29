@@ -41,7 +41,7 @@ class _CountdownWidgetState extends State<CountdownWidget> {
             SnapshotBuilder<int>(
               broadcast: _timerViewModel.numberStream,
               initialData: _number,
-              child: (value) {
+              onData: (value) {
                 return Text(
                   '$value',
                   style: Theme.of(context).textTheme.headline4,

@@ -29,7 +29,7 @@ class FutureIncrementWidget extends StatelessWidget {
             SnapshotBuilder<int>(
               broadcast: vm.number,
               initialData: 10,
-              child: (value) {
+              onData: (value) {
                 _counter = value;
                 return Text(
                   '$value',

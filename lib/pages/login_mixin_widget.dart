@@ -33,7 +33,7 @@ class _LoginMixinWidgetState extends State<LoginMixinWidget>
         child: SnapshotBuilder<bool>(
           initialData: false,
           broadcast: vm.isUserLogged,
-          child: (value) {
+          onData: (value) {
             return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
