@@ -297,7 +297,7 @@ packages:
   viewmodel:
     dependency: "direct main"
     description:
-      path: "../viewmodel"
+      path: "../flutter_viewmodel"
       relative: true
     source: path
     version: "0.0.1"
